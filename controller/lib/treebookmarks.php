@@ -10,7 +10,7 @@ class TreeBookmarks {
           $arr['title']=$k['title'];
           $arr['id']=$k['id'];
           $arr['isFolder']=true;
-          unset($array[$i]);
+//          unset($array[$i]);
           $arr['children']=TreeBookmarks::makeTree(array(),$array,$arr['id']);
           array_push($temp,$arr);
         } else {
@@ -18,7 +18,7 @@ class TreeBookmarks {
           $arr['title']=$k['title'];
           $arr['id']=$k['id'];
           $arr['href']=$k['url'];
-          unset($array[$i]);
+//          unset($array[$i]);
           array_push($temp,$arr);
         }
       }
