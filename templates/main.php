@@ -12,7 +12,7 @@ function widget($url) {
   $w.=$url;
   $w.="?output=popup&url='+c(b.location)+'&title='+e,'bkmk_popup','left='+((a.screenX||a.screenLeft)+10)+',";
   $w.="top='+((a.screenY||a.screenTop)+10)+',height=400px,width=550px,resizable=1,alwaysRaised=1');a.setTimeout(function(){d.focus()},300);})();";
-  return '<a href="'.$w.'" target="_new">'.$l->t('Bookmark link').'</a>';
+  return '<a href="'.$w.'" target="_new">'.$l->t('Bookmark link').'</a><br><a href="'.$url.'" target="_new">'.$l->t('Bookmark add').'</a>';
 }
 ?>
 
