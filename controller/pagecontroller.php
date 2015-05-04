@@ -48,25 +48,32 @@ class PageController extends Controller {
 		return new TemplateResponse('treebookmarks', 'main', $params);  // templates/main.php
 	}
 
-	/**
-	 * Simply method that posts back the payload of the request
-	 * @NoAdminRequired
-	 */
-  public function getBookmarks() {
-    $bookmarks=TreeBookmarks::findBookmarks($this->userId,$this->db);
+  /**
+   * Simply method that posts back the payload of the request
+   * @NoAdminRequired
+   */
+  public function getBookmarks($isFolder=0) {
+    $bookmarks=TreeBookmarks::findBookmarks($this->userId,$this->db,$isFolder);
     return new DataResponse($bookmarks);
   }
-  public function getFolders() {
-    $folders=TreeBookmarks::findFolders($this->userId,$this->db);
-    return new DataResponse($folders);
+  /**
+   * Simply method that posts back the payload of the request
+   * @NoAdminRequired
+   */
+  public function addFolder($title="",$childOf=0) {
+    $bookmarks=TreeBookmarks::addFolder($this->userId,$this->db,$title,$childOf);
+    return new DataResponse($bookmarks);
+  }
+  public function addBookmark($title="",$url="",$childOf=0) {
+    $bookmarks=TreeBookmarks::addBookmark($this->userId,$this->db,$title,$url,$childOf);
+    return new DataResponse($bookmarks);
   }
   /**
    * @NoAdminRequired
    * @NoCSRFRequired
    */
   public function widget($url="", $title="") {
-    $params = ['user' => $this->userId];
-		return new TemplateResponse('treebookmarks', 'widget', $params);  // templates/widget.php
+    $params = ['user' => $this->userId,'title'=>$title,'url'=>$url];
+    return new TemplateResponse('treebookmarks', 'widget', $params);  // templates/widget.php
   }
-
 }

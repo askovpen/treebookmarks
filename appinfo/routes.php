@@ -19,10 +19,10 @@
  */
 return [
     'routes' => [
-	   ['name' => 'page#index', 'url' => '/', 'verb' => 'GET'],
-	   ['name' => 'page#widget', 'url' => '/widget', 'verb' => 'GET'],
-	   ['name' => 'page#do_echo', 'url' => '/echo', 'verb' => 'POST'],
-	   ['name' => 'page#get_bookmarks', 'url' => '/bm', 'verb' => 'GET'],
-	   ['name' => 'page#get_folders', 'url' => '/folders', 'verb' => 'GET'],
+     ['name' => 'page#index', 'url' => '/', 'verb' => 'GET'],
+     ['name' => 'page#widget', 'url' => '/widget', 'verb' => 'GET'],
+     ['name' => 'page#get_bookmarks', 'url' => '/bm', 'verb' => 'GET'],
+     ['name' => 'page#add_bookmark', 'url' => '/add_bookmark', 'verb' => 'POST'],
+     ['name' => 'page#add_folder', 'url' => '/add_folder', 'verb' => 'POST'],
     ]
 ];
