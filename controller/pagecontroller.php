@@ -64,6 +64,10 @@ class PageController extends Controller {
     $bookmarks=TreeBookmarks::addFolder($this->userId,$this->db,$title,$childOf);
     return new DataResponse($bookmarks);
   }
+  /**
+   * Simply method that posts back the payload of the request
+   * @NoAdminRequired
+   */
   public function addBookmark($title="",$url="",$childOf=0) {
     $bookmarks=TreeBookmarks::addBookmark($this->userId,$this->db,$title,$url,$childOf);
     return new DataResponse($bookmarks);
