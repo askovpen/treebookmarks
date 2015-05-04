@@ -1,0 +1,19 @@
+{
+  "name": "treebookmarks",
+  "homepage": "https://github.com/askovpen/treebookmarks",
+  "authors": [
+    "Alexander N. Skovpen <a.n.skovpen@gmail.com>"
+  ],
+  "description": "tree Bookmarks",
+  "license": "AGPL",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  }
+}

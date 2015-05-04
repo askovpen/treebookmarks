@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<info>
+    <id>treebookmarks</id>
+    <name>Tree Bookmarks</name>
+    <description>tree Bookmarks</description>
+    <licence>AGPL</licence>
+    <author>Alexander N. Skovpen</author>
+    <version>0.0.2.8</version>
+    <namespace>TreeBookmarks</namespace>
+    <category>other</category>
+    <dependencies>
+        <owncloud min-version="8" />
+    </dependencies>
+</info>
