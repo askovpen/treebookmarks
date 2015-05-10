@@ -44,7 +44,7 @@ class PageControllerTest extends PHPUnit_Framework_TestCase {
     $this->cleanDB();
   }
   function cleanDB() {
-    $query = $this->db->prepareQuery('DELETE FROM *PREFIX*treebookmarks where title="test"');
+    $query = $this->db->prepareQuery("DELETE FROM *PREFIX*treebookmarks where title='test'");
     $query->execute();
   }
 }
