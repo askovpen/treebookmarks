@@ -14,13 +14,13 @@ module.exports = function( grunt ) {
           ]
         },
         files: [
-          {src: ['./appinfo/info.xml'],dest:'./appinfo/info.xml'}
+          { src: ['./appinfo/info.xml'], dest: './appinfo/info.xml' }
         ]
       }
     },
     jshint: {
       all: {
-        src: ['./js/script.js','./js/widget.js']
+        src: ['./js/script.js', './js/widget.js', './package.json' , 'Gruntfile.js']
       }
     },
     csslint: {
@@ -31,16 +31,16 @@ module.exports = function( grunt ) {
     uglify: {
       app: {
         files: {
-          './js/script.min.js': ['./js/script.js'],
-          './js/widget.min.js': ['./js/widget.js']
+          './js/script.min.js': [ './js/script.js' ],
+          './js/widget.min.js': [ './js/widget.js' ]
         }
       }
     },
     cssmin: {
       app: {
         files: {
-          './css/style.min.css': ['./css/style.css'],
-          './css/skin/ui.dynatree.min.css': ['./css/skin/ui.dynatree.css']
+          './css/style.min.css': [ './css/style.css' ],
+          './css/skin/ui.dynatree.min.css': [ './css/skin/ui.dynatree.css' ]
         }
       }
     },
