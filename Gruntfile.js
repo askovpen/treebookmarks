@@ -2,6 +2,22 @@ module.exports = function( grunt ) {
   require('time-grunt')(grunt);
   require('jit-grunt')(grunt);
   grunt.initConfig({
+    revcount: {
+    },
+    replace: {
+      version: {
+        options: {
+          patterns: [ {
+              match: /<version>.*<\/version>/,
+              replacement: '<version>0.0.2.<%= meta.revision %></version>'
+            }
+          ]
+        },
+        files: [
+          {src: ['./appinfo/info.xml'],dest:'./appinfo/info.xml'}
+        ]
+      }
+    },
     jshint: {
       all: {
         src: ['./js/script.js','./js/widget.js']
@@ -53,7 +69,7 @@ module.exports = function( grunt ) {
     compress: {
       appstore: {
         options: {
-          archive: './build/appstore.zip'
+          archive: './build/appstore.tar.gz'
         },
         files: [
           { 
@@ -67,11 +83,11 @@ module.exports = function( grunt ) {
               './js/*.min.js',
               './js/vendor/dynatree/dist/*.min.js',
               './templates/*'
-            ]
+            ], dest: 'treebookmarks/'
           }
         ]
       }
     }
   });
-  grunt.registerTask( "default",['jshint','csslint','uglify','cssmin','phplint','phpunit','compress','compress']);
+  grunt.registerTask( "default",['revcount','replace','jshint','csslint','uglify','cssmin','phplint','phpunit','compress','compress:appstore']);
 };
