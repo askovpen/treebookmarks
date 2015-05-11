@@ -1,8 +1,8 @@
 <?php
-  style('treebookmarks', 'style');
-  style('treebookmarks', 'skin/ui.dynatree');
+  style('treebookmarks', 'style.min');
+  style('treebookmarks', 'skin/ui.dynatree.min');
   script('treebookmarks', 'vendor/dynatree/dist/jquery.dynatree.min');
-  script('treebookmarks', 'widget');
+  script('treebookmarks', 'widget.min');
 ?>
 <div id="tbm_form" class="fTbm">
   <form class="addTbm">
