@@ -18,6 +18,7 @@ class TreeBookmarks {
           $arr['title']=$k['title'];
           $arr['id']=$k['id'];
           $arr['href']=$k['url'];
+          $arr['icon']='https://www.google.com/s2/favicons?domain='.parse_url($k['url'])['host'];
 //          unset($array[$i]);
           array_push($temp,$arr);
         }
