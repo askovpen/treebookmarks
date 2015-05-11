@@ -1,10 +1,10 @@
 <?php
   style('treebookmarks', 'style');
   style('treebookmarks', 'skin/ui.dynatree');
-  script('treebookmarks', 'vendor/dynatree/dist/jquery.dynatree');
+  script('treebookmarks', 'vendor/dynatree/dist/jquery.dynatree.min');
   script('treebookmarks', 'widget');
 ?>
-<div id="tbm_form">
+<div id="tbm_form" class="fTbm">
   <form class="addTbm">
     <h1 style="display: block; float: left"><?php p($l->t('Add a bookmark')); ?></h1>
     <div style="color: red; clear: both; visibility:hidden">

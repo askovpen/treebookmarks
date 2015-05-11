@@ -1,6 +1,5 @@
 (function ($, OC) {
   $(document).ready(function () {
-    console.table('test');
     $('#browser').dynatree({
       initAjax: {
         url: OC.generateUrl('/apps/treebookmarks/bm?isFolder=1')

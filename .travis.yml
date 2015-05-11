@@ -1,4 +1,8 @@
 language: php
+
+node_js:
+  - "0.10"
+
 php:
   - 5.4
   - 5.5
@@ -32,7 +36,7 @@ before_install:
 
 before_script:
   - cd apps/treebookmarks
-
+  - npm install
+  
 script:
-  - phpunit -c phpunit.xml
-  - phpunit -c phpunit.integration.xml
+  - grunt

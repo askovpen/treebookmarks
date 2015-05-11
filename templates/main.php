@@ -1,8 +1,6 @@
 <?php
 script('treebookmarks', 'script');
-// script('treebookmarks', 'vendor/jstree/dist/jstree');
-script('treebookmarks', 'vendor/dynatree/dist/jquery.dynatree');
-//style('treebookmarks', 'style');
+script('treebookmarks', 'vendor/dynatree/dist/jquery.dynatree.min');
 style('treebookmarks', 'skin/ui.dynatree');
 $url=$_['url'];
 $widgeturl=widget($url);
