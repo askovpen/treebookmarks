@@ -4,3 +4,5 @@
 
 Place this app in **owncloud/apps/**
 
+(http://i.imgur.com/NLnQZqa.png)
+
