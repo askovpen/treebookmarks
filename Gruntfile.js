@@ -74,6 +74,7 @@ module.exports = function( grunt ) {
         files: [
           { 
             src:[
+              './README.md',
               './appinfo/*',
               './controller/**',
               './css/style.min.css',
