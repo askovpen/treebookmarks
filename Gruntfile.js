@@ -23,7 +23,8 @@ module.exports = function( grunt ) {
     cssmin: {
       app: {
         files: {
-          './css/style.min.css': ['./css/style.css']
+          './css/style.min.css': ['./css/style.css'],
+          './css/skin/ui.dynatree.min.css': ['./css/skin/ui.dynatree.css']
         }
       }
     },
@@ -37,18 +38,40 @@ module.exports = function( grunt ) {
       options: {
         bootstrap: '../../lib/base.php',
         colors: true,
-        logTap: '1.log'
       }
     },
     phplint: {
       all: {
         src: [
-          './appinfo/routes.php',
-          './controller/pagecontroller.php',
-          './controller/lib/treebookmarks.php',
+          './appinfo/*.php',
+          './controller/*.php',
+          './controller/lib/*.php',
+          './templates/*'
+        ]
+      }
+    },
+    compress: {
+      appstore: {
+        options: {
+          archive: './build/appstore.zip'
+        },
+        files: [
+          { 
+            src:[
+              './appinfo/*',
+              './controller/**',
+              './css/style.min.css',
+              './css/skin/*.gif',
+              './css/skin/ui.dynatree.min.css',
+              './img/*',
+              './js/*.min.js',
+              './js/vendor/dynatree/dist/*.min.js',
+              './templates/*'
+            ]
+          }
         ]
       }
     }
   });
-  grunt.registerTask( "default",['jshint','csslint','uglify','cssmin','phplint','phpunit']);
+  grunt.registerTask( "default",['jshint','csslint','uglify','cssmin','phplint','phpunit','compress','compress']);
 };
