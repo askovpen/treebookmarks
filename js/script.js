@@ -20,12 +20,6 @@
           window.open(node.data.href, node.data.target);
         }
       },
-      onPostInit: function(isReloading, isError, XMLHttpRequest, textStatus, errorThrown) {
-//        console.table('isReloading: '+isReloading+', isError: '+isError+', XMLHttpRequest: '+XMLHttpRequest+', textStatus: '+textStatus);
-//        var node = $("#browser").dynatree("getRoot");
-//        console.table(node);
-//        node.sortChildren(null, true);
-      }
     });
   });
 })(jQuery, OC);

@@ -1,3 +1,6 @@
+.fTbm {
+  width: 500px;
+}
 .addTbm {
   background: none repeat scroll 0 0 #F8F8F8;
   border-radius: 0.5em 0.5em 0.5em 0.5em;
@@ -5,9 +8,8 @@
   margin: 1em;
   padding: 0.5em 1em;
   text-shadow: 0 1px 0 #FFFFFF;
-  width: 500px;
 }
-.addTbm h1 {
+h1 {
   font-weight: bold;
   border-bottom: 1px solid #BABABA;
 }
@@ -15,5 +17,5 @@
   margin-top: 1em;
 }
 .addTbm fieldset input[type="text"] {
-  width:100%;
+  width:97%;
 }
