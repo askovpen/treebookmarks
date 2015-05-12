@@ -61,6 +61,8 @@ module.exports = function( grunt ) {
         src: [
           './appinfo/*.php',
           './controller/*.php',
+          './storage/*.php',
+          './http/*.php',
           './controller/lib/*.php',
           './templates/*'
         ]
@@ -78,6 +80,7 @@ module.exports = function( grunt ) {
               './appinfo/*',
               './controller/**',
               './storage/**',
+              './http/**',
               './css/style.min.css',
               './css/skin/*.gif',
               './css/skin/ui.dynatree.min.css',
