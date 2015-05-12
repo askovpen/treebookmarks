@@ -17,12 +17,16 @@
  * The controller class has to be registered in the application.php file since
  * it's instantiated in there
  */
-return [
+
+namespace OCA\TreeBookmarks\AppInfo;
+
+$application = new Application();
+$application->registerRoutes($this, array(
     'routes' => [
      ['name' => 'page#index', 'url' => '/', 'verb' => 'GET'],
      ['name' => 'page#widget', 'url' => '/widget', 'verb' => 'GET'],
-     ['name' => 'page#get_bookmarks', 'url' => '/bm', 'verb' => 'GET'],
-     ['name' => 'page#add_bookmark', 'url' => '/add_bookmark', 'verb' => 'POST'],
-     ['name' => 'page#add_folder', 'url' => '/add_folder', 'verb' => 'POST'],
+     ['name' => 'page#get_icon', 'url' => '/icon', 'verb' => 'GET'],
+     ['name' => 'rest#rest', 'url' => '/api/1.0/{path}', 'verb' => 'GET'],
+     ['name' => 'rest#rest2', 'url' => '/api/1.0/{path}', 'verb' => 'POST'],
     ]
-];
+));

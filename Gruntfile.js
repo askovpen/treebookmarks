@@ -44,23 +44,13 @@ module.exports = function( grunt ) {
         }
       }
     },
-    phpunit: {
-      unit: {
-        dir: './tests/unit'
-      },
-      integration: {
-        dir: './tests/integration'
-      },
-      options: {
-        bootstrap: '../../lib/base.php',
-        colors: true,
-      }
-    },
     phplint: {
       all: {
         src: [
           './appinfo/*.php',
           './controller/*.php',
+          './storage/*.php',
+          './http/*.php',
           './controller/lib/*.php',
           './templates/*'
         ]
@@ -77,6 +67,8 @@ module.exports = function( grunt ) {
               './README.md',
               './appinfo/*',
               './controller/**',
+              './storage/**',
+              './http/**',
               './css/style.min.css',
               './css/skin/*.gif',
               './css/skin/ui.dynatree.min.css',
@@ -90,5 +82,5 @@ module.exports = function( grunt ) {
       }
     }
   });
-  grunt.registerTask( "default",['revcount','replace','jshint','csslint','uglify','cssmin','phplint','phpunit','compress','compress:appstore']);
+  grunt.registerTask( "default",['revcount','replace','jshint','csslint','uglify','cssmin','phplint','compress:appstore']);
 };
