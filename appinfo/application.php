@@ -21,7 +21,6 @@ class Application extends App {
         $c->query('UserId'),
         $c->query('ServerContainer')->getURLGenerator(),
         $c->query('IconStorage')
-//        $c->query('ServerContainer')->getAppFolder()
       );
     });
     $container->registerService('RestController', function($c) {
@@ -36,7 +35,6 @@ class Application extends App {
     $container->registerService('IconStorage', function($c) {
       return new IconStorage($c->query('ServerContainer')->getAppFolder());
     });
-//    });
   }
 }
 ?>

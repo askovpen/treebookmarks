@@ -28,8 +28,8 @@ class RestController extends ApiController {
   * @NoCSRFRequired
   * @PublicPage
   */
-  public function Rest2($path,$user,$password=null,$title="",$url="",$childOf=0) {
-    $this->Rest($path,$user,$password,$title,$url,$childOf);
+  public function Rest2($path,$user,$password=null,$title="",$url="",$childOf=0,$node=0,$toNode=0) {
+    $this->Rest($path,$user,$password,$title,$url,$childOf,$node,$toNode);
   }
   /**
   * @CORS
@@ -37,7 +37,7 @@ class RestController extends ApiController {
   * @NoCSRFRequired
   * @PublicPage
   */
-  public function Rest($path,$user,$password=null,$title="",$url="",$childOf=0) {
+  public function Rest($path,$user,$password=null,$title="",$url="",$childOf=0,$node=0,$toNode=0) {
     if ($this->userId == null && ($user == null || $this->userManager->userExists($user) == false)) {
       return new DataResponse(array('error' => 'User could not be identified'));
     }
@@ -61,6 +61,12 @@ class RestController extends ApiController {
         break;
       case 'addBookmark':
         return new DataResponse(TreeBookmarks::addBookmark($user,$this->db,$title,$url,$childOf));
+        break;
+      case 'moveBookmark':
+        return new DataResponse(TreeBookmarks::moveBookmark($user,$this->db,$node,$toNode));
+        break;
+      case 'delBookmark':
+        return new DataResponse(TreeBookmarks::delBookmark($user,$this->db,$node));
         break;
       default:
         return new DataResponse(array('error' => 'Unknown method '.$path));

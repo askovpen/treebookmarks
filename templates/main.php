@@ -17,6 +17,7 @@ function widget($url) {
 <div id="app">
   <div id="app-content">
     <div id="app-content-wrapper">
+      <div id="trash"><img src='/apps/treebookmarks/img/trash.png'></div>
       <?php 
         print_unescaped($this->inc('part.content'));
         print_unescaped($widgeturl); 

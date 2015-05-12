@@ -39,6 +39,22 @@ class TreeBookmarks {
     return $query->execute(array($userid,$title,$url,$childOf));
   }
 
+  public static function moveBookmark($userid,$db,$node,$toNode) {
+    $sql="update `*PREFIX*treebookmarks` set `childof`=? where `id`=? and `user_id`=?";
+    $query = $db->prepareQuery($sql);
+    return $query->execute(array($toNode,$node,$userid));
+  }
+
+  public static function delBookmark($userid,$db,$node) {
+    $sql="delete from `*PREFIX*treebookmarks` where `id`=? and `user_id`=?";
+    $query = $db->prepareQuery($sql);
+    $query->execute(array($node,$userid));
+    $sql="update `*PREFIX*treebookmarks` set `childof`=0 where `childof`=? and `user_id`=?";
+    $query = $db->prepareQuery($sql);
+    $query->execute(array($node,$userid));
+    return true;
+  }
+
   public static function findBookmarks($userid,$db,$folder=0) {
     $req="";
     if ($folder) {
