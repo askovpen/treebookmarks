@@ -24,8 +24,9 @@ class PageControllerTest extends PHPUnit_Framework_TestCase {
   public function setUp() {
     $request = $this->getMockBuilder('OCP\IRequest')->getMock();
     $this->db = \OC::$server->getDb();
+    $this->urlgenerator = \OC::$server->getURLGenerator();
     $this->controller = new PageController(
-      'treebookmarks', $request, $this->userId
+      'treebookmarks', $request, $this->userId,$this->urlgenerator
     );
   }
 

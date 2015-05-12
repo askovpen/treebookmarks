@@ -12,7 +12,7 @@
   $(document).ready(function () {
     $('#browser').dynatree({
       initAjax: {
-        url: OC.generateUrl('/apps/treebookmarks/bm')
+        url: OC.generateUrl('/apps/treebookmarks/api/1.0/getBookmarks')
       },
       imagePath:'',
       onActivate: function(node) {

@@ -77,6 +77,7 @@ module.exports = function( grunt ) {
               './README.md',
               './appinfo/*',
               './controller/**',
+              './storage/**',
               './css/style.min.css',
               './css/skin/*.gif',
               './css/skin/ui.dynatree.min.css',

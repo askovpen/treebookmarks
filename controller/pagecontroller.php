@@ -17,20 +17,21 @@ use \OCP\AppFramework\Http\DataResponse;
 use \OCP\AppFramework\Controller;
 use \OCP\IDb;
 use \OCA\TreeBookmarks\Controller\Lib\TreeBookmarks;
+use \OCA\TreeBookmarks\Http\ImageResponse;
 
 class PageController extends Controller {
 
 
-	private $userId;
-	private $db;
-	private $urlgenerator;
-
-	public function __construct($AppName, IRequest $request, $UserId){
-		parent::__construct($AppName, $request);
-		$this->userId = $UserId;
-    $this->db = \OC::$server->getDb();
-    $this->urlgenerator = \OC::$server->getURLGenerator();
-	}
+  private $userId;
+  private $urlgenerator;
+  private $icon;
+  
+  public function __construct($AppName, IRequest $request, $UserId, $urlgenerator,$icon){
+    parent::__construct($AppName, $request);
+    $this->userId = $UserId;
+    $this->urlgenerator = $urlgenerator;
+    $this->icon=$icon;
+  }
 
 	/**
 	 * CAUTION: the @Stuff turns off security checks; for this page no admin is
@@ -49,35 +50,20 @@ class PageController extends Controller {
 	}
 
   /**
-   * Simply method that posts back the payload of the request
-   * @NoAdminRequired
-   */
-  public function getBookmarks($isFolder=0) {
-    $bookmarks=TreeBookmarks::findBookmarks($this->userId,$this->db,$isFolder);
-    return new DataResponse($bookmarks);
-  }
-  /**
-   * Simply method that posts back the payload of the request
-   * @NoAdminRequired
-   */
-  public function addFolder($title="",$childOf=0) {
-    $bookmarks=TreeBookmarks::addFolder($this->userId,$this->db,$title,$childOf);
-    return new DataResponse($bookmarks);
-  }
-  /**
-   * Simply method that posts back the payload of the request
-   * @NoAdminRequired
-   */
-  public function addBookmark($title="",$url="",$childOf=0) {
-    $bookmarks=TreeBookmarks::addBookmark($this->userId,$this->db,$title,$url,$childOf);
-    return new DataResponse($bookmarks);
-  }
-  /**
    * @NoAdminRequired
    * @NoCSRFRequired
    */
   public function widget($url="", $title="") {
     $params = ['user' => $this->userId,'title'=>$title,'url'=>$url];
     return new TemplateResponse('treebookmarks', 'widget', $params);  // templates/widget.php
+  }
+  /**
+   * @NoAdminRequired
+   * @NoCSRFRequired
+   */
+  public function getIcon($domain="") {
+    return new ImageResponse($this->icon->getIcon($domain));
+    // $this->tst->newFolder('treebookmarks')
+    // $this->tst->nodeExists('treebookmarks')
   }
 }
