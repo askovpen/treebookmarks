@@ -60,7 +60,7 @@ class TreeBookmarks {
     if ($folder) {
       $req=" and isFolder=1";
     }
-    $sql="select * from `*PREFIX*treebookmarks` WHERE `user_id` = ?".$req;
+    $sql="select * from `*PREFIX*treebookmarks` WHERE `user_id` = ?".$req." order by title";
     $query = $db->prepareQuery($sql);
     $a=$query->execute(array($userid))->fetchAll();
     if ($folder) {
