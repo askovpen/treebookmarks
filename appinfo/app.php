@@ -11,7 +11,14 @@
 
 namespace OCA\TreeBookmarks\AppInfo;
 
-\OCP\App::addNavigationEntry([
+use OCP\AppFramework\App;
+
+$app = new App('treebookmarks');
+$container = $app->getContainer();
+$container->query('OCP\INavigationManager')->add(function () use ($container) {
+    $urlGenerator = $container->query('OCP\IURLGenerator');
+    $l10n = $container->query('OCP\IL10N');
+    return [
 	// the string under which your app will be referenced in owncloud
 	'id' => 'treebookmarks',
 
@@ -20,13 +27,14 @@ namespace OCA\TreeBookmarks\AppInfo;
 	'order' => 10,
 
 	// the route that will be shown on startup
-	'href' => \OCP\Util::linkToRoute('treebookmarks.page.index'),
+	'href' => $urlGenerator->linkToRoute('treebookmarks.page.index'),
 
 	// the icon that will be shown in the navigation
 	// this file needs to exist in img/
-	'icon' => \OCP\Util::imagePath('treebookmarks', 'app.svg'),
+	'icon' => $urlGenerator->imagePath('treebookmarks', 'app.svg'),
 
 	// the title of your application. This will be used in the
 	// navigation or on the settings page of your app
-	'name' => \OC_L10N::get('treebookmarks')->t('Tree Bookmarks')
-]);
+	'name' => $l10n->t('Tree Bookmarks')
+    ];
+});
