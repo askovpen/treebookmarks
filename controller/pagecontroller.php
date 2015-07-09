@@ -44,7 +44,7 @@ class PageController extends Controller {
 	 * @NoCSRFRequired
 	 */
 	public function index() {
-    $widgeturl=$this->urlgenerator->getAbsoluteURL('treebookmarks.page.widget');
+    $widgeturl=$this->urlgenerator->getAbsoluteURL('index.php/apps/treebookmarks/widget');
 		$params = ['user' => $this->userId, 'url'=>$widgeturl];
 		return new TemplateResponse('treebookmarks', 'main', $params);  // templates/main.php
 	}
