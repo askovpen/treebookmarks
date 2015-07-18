@@ -12,7 +12,7 @@
 namespace OCA\TreeBookmarks\AppInfo;
 
 use OCP\AppFramework\App;
-
+use OCP\Util;
 $app = new App('treebookmarks');
 $container = $app->getContainer();
 $container->query('OCP\INavigationManager')->add(function () use ($container) {
