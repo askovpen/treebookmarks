@@ -11,6 +11,6 @@
     <category>other</category>
     <repository type="git">https://github.com/askovpen/treebookmarks.git</repository>
     <dependencies>
-        <owncloud min-version="8.1" />
+        <owncloud min-version="10" />
     </dependencies>
 </info>
