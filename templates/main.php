@@ -5,7 +5,7 @@ style('treebookmarks', 'skin/ui.dynatree.min');
 $url=$_['url'];
 $widgeturl=widget($url);
 function widget($url) {
-  $l = new OC_l10n('treebookmarks');
+  $l = \OC::$server->getL10N('treebookmarks');
   $w="javascript:(function(){var a=window,b=document,c=encodeURIComponent,e=c(document.title),d=a.open('";
   $w.=$url;
   $w.="?output=popup&url='+c(b.location)+'&title='+e,'bkmk_popup','left='+((a.screenX||a.screenLeft)+10)+',";

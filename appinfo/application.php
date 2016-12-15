@@ -2,11 +2,12 @@
 
 namespace OCA\TreeBookmarks\AppInfo;
 
-use \OCP\AppFramework\App;
+use OCP\AppFramework\App;
+use OCP\AppFramework\IAppContainer;
 
-use \OCA\TreeBookmarks\Controller\PageController;
-use \OCA\TreeBookmarks\Controller\RestController;
-use \OCA\TreeBookmarks\Storage\IconStorage;
+use OCA\TreeBookmarks\Controller\PageController;
+use OCA\TreeBookmarks\Controller\RestController;
+use OCA\TreeBookmarks\Storage\IconStorage;
 
 class Application extends App {
 

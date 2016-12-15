@@ -58,9 +58,9 @@ class TreeBookmarks {
   public static function findBookmarks($userid,$db,$folder=0) {
     $req="";
     if ($folder) {
-      $req=" and isFolder=1";
+      $req=" and `isFolder`=1";
     }
-    $sql="select * from `*PREFIX*treebookmarks` WHERE `user_id` = ?".$req." order by title";
+    $sql="select * from `*PREFIX*treebookmarks` WHERE `user_id` = ?".$req." order by `title`";
     $query = $db->prepareQuery($sql);
     $a=$query->execute(array($userid))->fetchAll();
     if ($folder) {
