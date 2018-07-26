@@ -10,7 +10,17 @@
  */
 
 namespace OCA\TreeBookmarks\AppInfo;
+$navigationEntry = function () {
+  return [
+    'id' => 'treebookmarks',
+    'name' => \OC::$server->getL10N('treebookmarks')->t('Tree Bookmarks'),
+    'href' => \OC::$server->getURLGenerator()->linkToRoute('treebookmarks.page.index'),
+    'icon' => \OC::$server->getURLGenerator()->imagePath('treebookmarks', 'app.svg'),
+  ];
+};
+\OC::$server->getNavigationManager()->add($navigationEntry);
 
+/*
 use OCP\AppFramework\App;
 use OCP\Util;
 $app = new App('treebookmarks');
@@ -38,3 +48,4 @@ $container->query('OCP\INavigationManager')->add(function () use ($container) {
 	'name' => $l10n->t('Tree Bookmarks')
     ];
 });
+*/

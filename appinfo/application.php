@@ -28,7 +28,7 @@ class Application extends App {
       return new RestController(
         $c->query('AppName'),
         $c->query('Request'),
-        $c->query('ServerContainer')->getDb(),
+        $c->query('ServerContainer')->getDatabaseConnection(),
         $c->query('UserId'),
         $c->query('ServerContainer')->getUserManager()
       );

@@ -5,7 +5,7 @@ use \OCA\TreeBookmarks\Controller\Lib\TreeBookmarks;
 use \OCP\AppFramework\Http\DataResponse;
 use \OCP\AppFramework\ApiController;
 use \OCP\IRequest;
-use \OCP\IDb;
+use \OCP\IDBConnection;
 use \OC\User\Manager;
 
 class RestController extends ApiController {
@@ -14,7 +14,7 @@ class RestController extends ApiController {
   private $userManager;
   private $userId;
 
-  public function __construct($appName, IRequest $request, IDb $db , $userId=null,Manager $userManager=null) {
+  public function __construct($appName, IRequest $request, IDBConnection $db , $userId=null,Manager $userManager=null) {
     parent::__construct($appName, $request);
 
     $this->db=$db;
